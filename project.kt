@@ -63,7 +63,7 @@ fun main() {
                     println()
                     println("That ticket has already been purchased!")
                     println()
-                } else break
+                    } else break
                 }
                 booked[row][seat] = 1
 
