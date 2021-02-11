@@ -1,2 +1,2 @@
-# cinema_room_manager
+# cinema-room-manager
 Project: Cinema Room Manager
