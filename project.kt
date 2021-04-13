@@ -1,20 +1,24 @@
-package cinema
-
 fun main() {
     println("Enter the number of rows:")
     val rows = readLine()!!.toInt()
     println("Enter the number of seats in each row:")
     val seats = readLine()!!.toInt()
     println()
+
+    val cinema = rows * seats
+    val total =
+        if (cinema < 61) {
+            cinema * 10
+        } else {
+            ((rows + 1) * seats / 2) * 8 + ((rows / 2) * seats) * 10
+        }
     val booked = Array(rows + 1) { IntArray(seats + 1) }
     var row: Int
     var seat: Int
-    var key : Int
-    val cinema = rows * seats
     var income = 0
     var tickets = 0
-    val total = if (cinema < 61) cinema * 10 else ((rows + 1) * seats / 2) * 8 + ((rows / 2) * seats) * 10
     var percentage = 0.0
+
     while (true) {
         println(
             "1. Show the seats\n" +
@@ -22,8 +26,8 @@ fun main() {
                     "3. Statistics\n" +
                     "0. Exit"
         )
-        key = readLine()!!.toInt()
-        when (key) {
+
+        when (readLine()!!.toInt()) {
             0 -> break
             1 -> {
                 println()
@@ -60,9 +64,9 @@ fun main() {
                         println("Wrong input!")
                         println()
                     } else if (booked[row][seat] == 1) {
-                    println()
-                    println("That ticket has already been purchased!")
-                    println()
+                        println()
+                        println("That ticket has already been purchased!")
+                        println()
                     } else break
                 }
                 booked[row][seat] = 1
